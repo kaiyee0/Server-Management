@@ -1,0 +1,22 @@
+mysql:
+  host: localhost:3307
+  username: root
+  password: root
+
+spring:
+  main.banner-mode: off
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.host}/server_db?serverTimezone=GMT%2B8&characterEncoding=utf8
+    username: ${mysql.username}
+    password: ${mysql.password}
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging.pattern.console: "%date{yyyy-MM-dd HH:mm:ss.SSSS} | %level | %thread | %logger | %message%n"
